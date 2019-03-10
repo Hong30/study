@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <title>my weibo</title>
+</head>
+<html>
+<boby>
+    <h1>微博界面</h1>
+    <form>
+        <input name="account_or_content" placeholder="搜索微博"/>
+    <br>
+        <input name="accoun" placeholder="搜索用户"/>
+    <br>
+        <input name="submit" type="submit" value="搜索"/>
+    <br>
+    <br>
+        <textarea name="textfield3" cols="35" rows="3" placeholder="请输入文本"></textarea>
+    <br>
+        <td><a href="/publishWeibo">发布微博</a></td>
+    <br>
+    <br>
+    </form>
+
+
+    <table>
+        {{range .}}
+        <tr>
+            <td>avatar: {{.Avatar}}</td>
+            <td>account: {{.Account}}</td>
+            <td><a href="/deleteWeibo">删除微博</a></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>{{.Content}}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><a href="/weibo/givelike?weiboID={{.ID}}">点赞({{.LikeNum}})</a></td>
+            <td><button>评论</button></td>
+            <td><a href="/weibo/collect?weiboID={{.ID}}">收藏</a></td>
+        </tr>
+        {{end}}
+    </table>
+
+</body>
+</html>

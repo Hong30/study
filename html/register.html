@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <title>my weibo</title>
+</head>
+<html>
+<boby>
+    <h1>{{.title}}</h1>
+    <div style="color: red">{{.err}}</div>
+    <form action="/register" method="POST">
+        账  户:
+        <input name="account" placeholder="请输入账号" value=""/>
+	<br>
+        密  码:
+        <input name="password" type="password" placeholder="请输入密码"/>
+    <br>
+        重复密码:
+        <input name="repassword" type="password" placeholder="请重复输入密码"/>
+    <br>
+        头  像:
+        <input name="avatar" placeholder="请编辑头像"/>
+
+    <input name="submit" type="submit" value="注册"/>
+    <a href="/login">返回登录</a>
+    </form>
+</boby>
+</html>

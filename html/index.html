@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<head>
+    <title>my weibo</title>
+</head>
+<body>
+    <h2>{{.title}}</h2>
+    <div style="color: red">{{.err}}</div>
+    <form action="/login" method="POST">
+        account: <input name="account" value="{{.account}}" />
+        password: <input name="password" type="password" value="" />
+        <input type="submit" value="login" />
+    </form>
+</body>

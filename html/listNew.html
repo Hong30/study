@@ -1,0 +1,185 @@
+<html>
+<head>
+<link media="all" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+<link media="all" rel="stylesheet" href="./list.css" />
+<title>weibo</title>
+</head>
+<body translate="no">
+<div class="navbar navbar-default navbar-static-top">
+	<div class="container">
+		<div class="navbar-collapse navbar-collapse-1 collapse" aria-expanded="true">
+			<ul class="nav navbar-nav">
+				<li class="active">
+					<a href="#fake"><span class="glyphicon glyphicon-home"></span> 主页</a>
+				</li>
+				<li>
+					<a href="#fake"><span class="glyphicon glyphicon-bell"></span> 通知</a>
+				</li>
+				<li>
+					<a href="#fake"><span class="glyphicon glyphicon-envelope"></span> 私信</a>
+				</li>
+			</ul>
+			<div class="navbar-form navbar-right">
+				<div class="form-group has-feedback">
+					<input type="text" class="form-control-nav" id="search" aria-describedby="search1">
+					<span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+				</div>
+
+				<button class="btn btn-primary" type="submit" aria-label="Left Align">
+					<span class="glyphicon glyphicon-pencil" aria-hidden="true"> </span> 搜索
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					个人信息
+					<a href="#"><img class="img-responsive" alt="" src="{{.user.Avatar}}"></a>
+					<div class="row">
+						<div class="col-xs-3">
+							<h5>
+								<small>微博</small>
+								<br>
+								<a href="#">{{.user.WeiboNum}}</a>
+							</h5>
+						</div>
+						<div class="col-xs-4">
+							<h5>
+								<small>关注</small>
+								<br>
+								<a href="#">{{.user.FollowingNum}}</a>
+							</h5>
+						</div>
+						<div class="col-xs-5">
+							<h5>
+								<small>粉丝</small>
+								<br>
+								<a href="#">{{.user.FollowerNum}}</a>
+							</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default panel-custom">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						热点消息
+						<small><a href="#">更新</a></small>
+					</h3>
+				</div>
+
+				<div class="panel-body">
+					<ul class="list-unstyled">
+						<li><a href="#">#Cras justo odio</a></li>
+						<li><a href="#">#Dapibus ac facilisis in</a></li>
+						<li><a href="#">#Morbi leo risus</a></li>
+						<li><a href="#">#Porta ac consectetur ac</a></li>
+						<li><a href="#">#Vestibulum at eros</a></li>
+						<li><a href="#">#Vestibulum at eros</a></li>
+						<li><a href="#">#Vestibulum at eros</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<div class="media">
+						<a class="media-left" href="#fake">
+						</a>
+						<div class="media-body">
+							<div class="form-group has-feedback">
+								<!-- <label class="control-label sr-only" for="inputSuccess5">Hidden label</label> -->
+								<input type="text" class="form-control" id="search2" aria-describedby="search" placeholder="请输入文本内容">
+
+								<!-- <span class="glyphicon glyphicon-camera form-control-feedback" aria-hidden="true"></span> -->
+								<span id="search2" class="sr-only">(success)</span>
+
+								<button class="btn btn-primary" type="submit" aria-label="Left Align">
+									<span aria-hidden="true"> 发布微博 </span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				{{range .weibos}}
+				<div class="panel-body">
+					<div class="media">
+						<a class="media-left" href="#fake">
+							<img alt="" class="media-object img-rounded" src="">
+						</a>
+						<div class="media-body">
+							<img class="img-responsive" alt="" width="50" height="45" src="{{.Avatar}}">
+							<!-- <p>{{.Avatar}}</p> -->
+							<p>{{.Account}}</p>
+							<h5 class="media-heading">微博标题</h5>
+							<p>{{.Content}}</p>
+							<ul class="nav nav-pills nav-pills-custom">
+								<li><a href="/weibo/givelike?weiboID={{.ID}}"><span class="glyphicon glyphicon-heart-empty"> 点赞({{.LikeNum}})</span></a></li>
+								<li><a href="/weibo/postComment"><span class="glyphicon glyphicon-edit"> 评论</span></a></li>
+								<li><a href="/weibo/collect?weiboID={{.ID}}"><span class="glyphicon glyphicon-star"> 收藏</span></a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-option-horizontal"> 其他</span></a></li>
+								<li><a href="/deleteWeibo"><span class="glyphicon glyphicon-remove"> 删除微博</span></a></li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+				{{end}}
+			</div>
+			<br>
+			<br>
+			<br>
+		</div>
+
+
+		<div class="col-sm-3">
+			<div class="panel panel-default panel-custom">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						粉丝列表
+						<small><a href="#">换一批</a> ● <a href="#">查看全部</a></small>
+					</h3>
+				</div>
+				<div class="panel-body">
+					{{range .followers}}
+					<div class="media">
+						<div class="media-left">
+							<img src="{{.Avatar}}" alt="" width="40" height="35" class="media-object img-rounded">
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">{{.Account}}</h4>
+							<a href="/weibo/followersShow?id={{.ID}}" class="btn btn-default btn-xs">
+								<span class="glyphicon glyphicon-user"></span>
+								个人信息
+							</a>
+						</div>
+					</div>
+					{{end}}
+				</div>
+
+				<div class="panel-footer">
+					<a href="www.google.it">
+						<span class="glyphicon glyphicon-user"></span>
+						推荐用户查找
+					</a>
+				</div>
+			</div>
+			<div class="well well-sm">
+				<ul class="list-inline">
+
+				</ul>
+			</div>
+		</div>
+
+
+	</div>
+</div>
+</body>
+</html>

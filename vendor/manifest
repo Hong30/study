@@ -2,6 +2,7 @@
 	"version": 0,
 	"dependencies": [
 		{
+<<<<<<< HEAD
 			"importpath": "github.com/boj/redistore",
 			"repository": "https://github.com/boj/redistore",
 			"revision": "cd5dcc76aeff9ba06b0a924829fe24fd69cdd517",
@@ -20,12 +21,15 @@
 			"branch": "master"
 		},
 		{
+=======
+>>>>>>> ef2665563460fc2df49ff20205487ce6e4fc91f5
 			"importpath": "github.com/go-sql-driver/mysql",
 			"repository": "https://github.com/go-sql-driver/mysql",
 			"revision": "2c9d54fefcfb443251f5b92cd5106cf4dc07b880",
 			"branch": "master"
 		},
 		{
+<<<<<<< HEAD
 			"importpath": "github.com/golang/protobuf/proto",
 			"repository": "https://github.com/golang/protobuf",
 			"revision": "b5d812f8a3706043e23a9cd5babf2e5423744d30",
@@ -52,22 +56,28 @@
 			"branch": "master"
 		},
 		{
+=======
+>>>>>>> ef2665563460fc2df49ff20205487ce6e4fc91f5
 			"importpath": "github.com/jmoiron/sqlx",
 			"repository": "https://github.com/jmoiron/sqlx",
 			"revision": "82935fac6c1a317907c8f43ed3f7f85ea844a78b",
 			"branch": "master"
 		},
 		{
+<<<<<<< HEAD
 			"importpath": "github.com/mattn/go-isatty",
 			"repository": "https://github.com/mattn/go-isatty",
 			"revision": "369ecd8cea9851e459abb67eb171853e3986591e",
 			"branch": "master"
 		},
 		{
+=======
+>>>>>>> ef2665563460fc2df49ff20205487ce6e4fc91f5
 			"importpath": "github.com/pkg/errors",
 			"repository": "https://github.com/pkg/errors",
 			"revision": "27936f6d90f9c8e1145f11ed52ffffbfdb9e0af7",
 			"branch": "master"
+<<<<<<< HEAD
 		},
 		{
 			"importpath": "github.com/ugorji/go/codec",
@@ -94,6 +104,8 @@
 			"repository": "https://gopkg.in/yaml.v2",
 			"revision": "51d6538a90f86fe93ac480b35f37b2be17fef232",
 			"branch": "master"
+=======
+>>>>>>> ef2665563460fc2df49ff20205487ce6e4fc91f5
 		}
 	]
 }
